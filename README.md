@@ -10,6 +10,10 @@ I additionally included some plots that make use of basemap; which enables the p
 Plotting like this typically works better in 3D.
 I am not pleased that I was not able to get the axis ticks to display in the plot containing the Earth, but I am confident I could find a solution given more time.
 
+In general, I only propagated a single planet and used/save intermediate perameters to avoid duplicate computation at the marginal cost of additional memeory.
+I put the individual KOE into an EarthOrbiter object instead of using the numpy vector math to handle computations for multiple KOE.
+There could be marginally better comments in a few of the functions. Lint rules were loosely followed.
+
 
 
 
