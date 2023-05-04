@@ -7,6 +7,7 @@ from Plotter.Plotter import plotXY
 from Plotter.Plotter import plotXZ
 from Plotter.PlotterEarth import plotXY_withEarth
 from Plotter.PlotterEarth import plotXZ_withEarth
+import argparse
 
 
 """
@@ -205,16 +206,9 @@ class EarthOrbiter:
         return c2, c3
 
 
-def main():
+def main(a=6371+400, e=0.02, i=0, W=0, w=0, v0=0, dt=60, mu=398600.4415):
     #  Contains a sample propagation
-    a=6371+400
-    e=0.02
-    i=0
-    W=0
-    w=0
-    v0=0
     EO = EarthOrbiter(a, e, i, W, w, v0, mu=398600.4415)
-    dt = 60*1.  #  time in seconds
 
     n = np.ceil(EO.T/dt).astype(int)
     xyzs = np.zeros((n+1,6))
@@ -238,4 +232,22 @@ def main():
     plotXZ_withEarth(xyzs.T, num, outpath, fname)
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Create a ArcHydro schema')
+    parser.add_argument('--a', metavar='path', required=True,
+                        help='semi-major axis in km')
+    parser.add_argument('--e', metavar='path', required=True,
+                        help='eccentricity')
+    parser.add_argument('--i', metavar='path', required=True,
+                        help='inclination')
+    parser.add_argument('--W', metavar='path', required=True,
+                        help='longitude of ascending node')
+    parser.add_argument('--w', metavar='path', required=True,
+                        help='argument of periapsis')
+    parser.add_argument('--v0', metavar='path', required=True,
+                        help='True Anomaly in rad')
+    parser.add_argument('--dt', metavar='path', required=False,
+                        help='The Time Spacing in (s) to plot')
+    parser.add_argument('--mu', metavar='path', required=False,
+                        help='Gravitational Parameter in km^3s^-2')
+
     main()

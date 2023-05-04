@@ -22,10 +22,15 @@ From the SpaceVehiclePropagator folder, run
 python setup.py install
 ```
 
+Or with PYPI by
+```
+pip install SpaceVehiclePropagator
+```
+
 ## Running
 From the SpaceVehiclePropagator folder, run 
 ```
-python ./EarthOrbiter/EarthOrbiter.py
+python ./EarthOrbiter/EarthOrbiter.py --a 6771 --e 0.02 --i 0 --W 0 --w 0 --v0 0 --dt 60 --mu 398600.4415
 ```
 
 
