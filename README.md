@@ -1,29 +1,33 @@
 # SpaceVehiclePropagator
 A Two-Body Space Vehicle Propagator
 
+First, this kind of code has been written hundreds to thousands of times and the most appropriate solution would be to use one that has already been coded and optimized.
+My advisor from Cornell had https://github.com/dsavransky/keplertools which I used for propagating exoplanetary systems.
+It has cython optimization and should be close to the fastest that can be achieved within python.
+
+Since that didn't seem like the spirit of the request; I use the formulation from Algorithm 8 of Vallado for the propagation.
+I additionally included some plots that make use of basemap; which enables the plotting of an Earth.
+Plotting like this typically works better in 3D.
+I am not pleased that I was not able to get the axis ticks to display in the plot containing the Earth, but I am confident I could find a solution given more time.
 
 
 
 
-![Build Status](https://github.com/dsavransky/keplertools/actions/workflows/ci.yml/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/dsavransky/keplertools/badge.svg?branch=main)](https://coveralls.io/github/dsavransky/keplertools?branch=main)
-[![Documentation Status](https://readthedocs.org/projects/keplertools/badge/?version=latest)](https://keplertools.readthedocs.io/en/latest/?badge=latest)
-[![PyPI version](https://badge.fury.io/py/keplertools.svg)](https://badge.fury.io/py/keplertools)
-[![Requirements Status](https://requires.io/github/dsavransky/keplertools/requirements.svg?branch=main)](https://requires.io/github/dsavransky/keplertools/requirements/?branch=main)
 
 ## Installation
 
+Install git and use the github link to clone to a local repository
+From the SpaceVehiclePropagator folder, run 
 ```
-pip install SpaceVehiclePropagator
-```
-
-To also compile the Cython versions (compiler required, see here for details: https://cython.readthedocs.io/en/latest/src/quickstart/install.html):
-
-```
-pip install --no-binary SpaceVehiclePropagator SpaceVehiclePropagator[C]
+python setup.py install
 ```
 
-If using a zsh shell (or depending on your specific shell setup), you may need to escape the square brackets (i.e., the last bit of the previous command would be ``SpaceVehiclePropagator\[C\]``.
+## Running
+From the SpaceVehiclePropagator folder, run 
+```
+python ./EarthOrbiter/EarthOrbiter.py
+```
+
 
 ## Documentation
 

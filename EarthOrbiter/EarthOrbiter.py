@@ -5,6 +5,8 @@ from KOE.KOE import XYZfromKOE
 from KOE.KOE import XdYdZdfromKOE
 from Plotter.Plotter import plotXY
 from Plotter.Plotter import plotXZ
+from Plotter.PlotterEarth import plotXY_withEarth
+from Plotter.PlotterEarth import plotXZ_withEarth
 
 
 """
@@ -227,7 +229,13 @@ def main():
     plotXY(xyzs.T, num, outpath, fname)
     fname = 'YZ'
     num=2
-    plotXY(xyzs.T, num, outpath, fname)
+    plotXZ(xyzs.T, num, outpath, fname)
+    fname = 'XY_Earth'
+    num=3
+    plotXY_withEarth(xyzs.T, num, outpath, fname)
+    fname = 'YZ_Earth'
+    num=4
+    plotXZ_withEarth(xyzs.T, num, outpath, fname)
 
 if __name__ == "__main__":
     main()
