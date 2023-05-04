@@ -231,6 +231,7 @@ def main(a=6371+400, e=0.02, i=0, W=0, w=0, v0=0, dt=60, mu=398600.4415):
     num=4
     plotXZ_withEarth(xyzs.T, num, outpath, fname)
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Create a ArcHydro schema')
     parser.add_argument('--a', metavar='path', required=True,
@@ -250,4 +251,5 @@ if __name__ == "__main__":
     parser.add_argument('--mu', metavar='path', required=False,
                         help='Gravitational Parameter in km^3s^-2')
 
-    main()
+    main(a, e, i, W, w, v0, dt, mu)
+
